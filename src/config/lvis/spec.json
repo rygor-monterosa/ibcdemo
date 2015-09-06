@@ -1,0 +1,14 @@
+{
+  "name": "<%= title %>",
+  "id": "<%= name %>",
+  "version": "<%= version %>",
+  "available": true,
+  "schedule": true,
+  "base_apps_url": "<%= url %>",
+  "dash_image": "/config/lvis/app-dash.png",
+  "store_image": "/config/lvis/app-store.png",
+  "embed_url": "/index.html",
+  "services": {
+    "leaderboard": {}
+  }
+}

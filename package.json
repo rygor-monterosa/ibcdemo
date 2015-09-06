@@ -1,0 +1,41 @@
+{
+  "version": "0.0.0",
+  "name": "ibcdemo",
+  "title": "IBC Demo App",
+  "description": "Demo application for IBC exhibition",
+  "homepage": "http://lvis.tv/",
+  "author": {
+    "name": "Monterosa Productions Ltd",
+    "email": "hello@monterosa.co.uk",
+    "url": "http://monterosa.co.uk/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rygor-monterosa/ibcdemo.git"
+  },
+  "language": "en",
+  "keywords": [
+    "lvis",
+    "application",
+    "ibc",
+    "demo"
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "gulp": "~3.8.10",
+    "gulp-connect": "~2.2.0",
+    "gulp-filter": "~1.0.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-plumber": "~0.6.4",
+    "gulp-rename": "~1.2.0",
+    "gulp-filter": "~3.0.1",
+    "gulp-util": "~3.0.0",
+    "gulp-template": "~1.0.0",
+    "gulp-livereload": "~3.8.0",
+    "gulp-less": "~3.0.3",
+    "connect-modrewrite": "~0.8.2",
+    "localtunnel": "~1.7.0"
+  }
+}

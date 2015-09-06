@@ -1,0 +1,20 @@
+{
+  "version": "0.0.0",
+  "name": "ibcdemo",
+  "description": "Demo application for IBC exhibition",
+  "author": {
+    "name": "Monterosa Productions Ltd",
+    "email": "hello@monterosa.co.uk",
+    "url": "http://monterosa.co.uk/"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "lesshat": "~3.0.2",
+    "normalize.css": "~3.0.3"
+  }
+}
