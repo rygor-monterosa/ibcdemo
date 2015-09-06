@@ -11,6 +11,8 @@ var fs          = require('fs'),
 	connect     = require('gulp-connect'),
 	template    = require('gulp-template'),
 	less        = require('gulp-less'),
+	jshint      = require('gulp-jshint'),
+	stylish     = require('jshint-stylish'),
 	livereload  = require('gulp-livereload'),
 	modrewrite  = require('connect-modrewrite'),
 	localtunnel = require('localtunnel');
@@ -36,12 +38,35 @@ var options = {
 			util.log(util.colors.red(err.toString()));
 			this.emit('end');
 		}
-	}
+	},
+    jshint: {
+        forin: true,
+        noarg: true,
+        noempty: true,
+        bitwise: false,
+        undef: true,
+        unused: true,
+        curly: true,
+        browser: true,
+        jquery: true,
+        maxerr: 20
+    }
 };
 
 
 /* 
- * Build scripts that include:
+ * Detects errors and potential problems in code.
+ */
+
+gulp.task('hint', function() {
+    return gulp.src(['src/js/**/*.js'])
+        .pipe(jshint(options.jshint))
+        .pipe(jshint.reporter(stylish));
+});
+
+
+/* 
+ * Builds scripts that including:
  *
  *  1. Bower components
  *  2. Custom scripts from src/js/ folder
@@ -49,7 +74,7 @@ var options = {
  * Feel free to use any superset of JS: TypeScript, CoffeeScript, etc.
  */
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['hint'], function() {
 
 	var bowerComponents = [
 		'bower_components/jquery/dist/jquery.js'
