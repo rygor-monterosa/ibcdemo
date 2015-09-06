@@ -1,8 +1,8 @@
 {
   "version": "0.0.0",
-  "name": "ibcdemo",
-  "title": "IBC Demo App",
-  "description": "Demo application for IBC exhibition",
+  "name": "ibctracker",
+  "title": "IBC Tracker Demo App",
+  "description": "Tracker demo application for IBC exhibition",
   "homepage": "http://lvis.tv/",
   "author": {
     "name": "Monterosa Productions Ltd",

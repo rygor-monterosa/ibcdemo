@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
-  "name": "ibcdemo",
-  "description": "Demo application for IBC exhibition",
+  "name": "ibctracker",
+  "description": "Tracker demo application for IBC exhibition",
   "author": {
     "name": "Monterosa Productions Ltd",
     "email": "hello@monterosa.co.uk",

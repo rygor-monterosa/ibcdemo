@@ -1,0 +1,55 @@
+.players {
+  > div {
+    .border-radius(50%);
+    .transition-property(all);
+    .transition-timing-function(linear);
+    .translate3d(-999px, -999px, 0);
+
+    position: absolute;
+    z-index: 9;
+    left: -@player-size / 2px;
+    top: -@player-size / 2px;
+    display: block;
+    width: @player-size;
+    height: @player-size;
+    line-height: @player-size;
+    opacity: 0.9;
+    text-align: center;
+    color: #fff;
+    font-size: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    > span {
+      @width: 200px;
+
+      position: absolute;
+      bottom: -15px;
+      left: -(@width - @player-size) / 2;
+      display: block;
+      width: @width;
+      line-height: 1;
+      color: #fff;
+      font-size: 11px;
+      text-align: center;
+      text-shadow: 1px 1px 0 #000;
+    }
+
+    &.team-0 {
+      background-color: #0080c2;
+    }
+
+    &.team-1 {
+      background-color: #292d2f;
+    }
+
+    &.team-2 {
+      color: black;
+      background-color: yellow;
+    }
+
+    &.jersey-1 {
+      color: black;
+      background-color: #fff;
+    }
+  }
+}
