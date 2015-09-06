@@ -35,6 +35,8 @@
     "gulp-template": "~1.0.0",
     "gulp-livereload": "~3.8.0",
     "gulp-less": "~3.0.3",
+    "gulp-jshint": "~1.11.2",
+    "jshint-stylish": "~2.0.1",
     "connect-modrewrite": "~0.8.2",
     "localtunnel": "~1.7.0"
   }
