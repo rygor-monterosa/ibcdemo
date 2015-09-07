@@ -59,7 +59,7 @@ var options = {
  */
 
 gulp.task('hint', function() {
-    return gulp.src(['src/js/**/*.js'])
+    return gulp.src(['src/js/**/*.js', "!src/js/lib/**/*.*"])
         .pipe(jshint(options.jshint))
         .pipe(jshint.reporter(stylish));
 });

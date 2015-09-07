@@ -7,6 +7,8 @@
   "base_apps_url": "<%= url %>",
   "dash_image": "/config/lvis/app-dash.png",
   "store_image": "/config/lvis/app-store.png",
+  "elements": "/config/lvis/elements.json",
+  "fields": "/config/lvis/fields.json",
   "embed_url": "/index.html",
   "services": {
     "leaderboard": {}
