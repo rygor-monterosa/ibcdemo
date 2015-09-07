@@ -13,8 +13,7 @@ $(function () {
     var squad = [{}, {}, {}];
 
     var initSquad = function () {
-        var element,
-            data = window.Tracker.DataSource.getSquad();
+        var data = window.Tracker.DataSource.getSquad();
 
         data.forEach(function (team) {
             team.players.forEach(function (player) {

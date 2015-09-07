@@ -1,6 +1,6 @@
 window.Tracker = window.Tracker || {};
 
-window.Tracker.DataSource = (function (config) {
+window.Tracker.DataSource = (function () {
     var STATE_STOPPED = 0,
         STATE_RUNNING = 1;
 
@@ -15,13 +15,20 @@ window.Tracker.DataSource = (function (config) {
 
     var process = function () {
         var track    = data.tracking[idx],
-            duration = track.timecode - (idx > 0 ? data.tracking[idx - 1].timecode : 0);
+            previous = (idx > 0 ? data.tracking[idx - 1].timecode : 0),
+            current  = track.timecode;
 
-        track._duration = duration;
+        track._duration = current - previous;
 
         $(self).triggerHandler('track', track);
 
-        timeout = setTimeout(process, duration);
+        if (idx === data.tracking.length - 1) {
+            return self.stop();
+        }
+
+        var next = data.tracking[idx + 1].timecode;
+
+        timeout = setTimeout(process, next - current);
 
         idx += delta;
     };

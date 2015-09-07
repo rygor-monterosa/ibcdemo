@@ -14,7 +14,7 @@ window.Tracker.Pitch = {
         return [container.width(), container.height()];
     }()),
 
-    depth: 10,
+    depth: 7,
 
     toCSSCoordinates: function (coordinates) {
         var newCoordinates = [];

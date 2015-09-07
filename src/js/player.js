@@ -18,11 +18,13 @@ window.Tracker.Player = function (config) {
     this.update = function (coordinates, duration) {
         var CSSCoordinates = window.Tracker.Pitch.toCSSCoordinates(coordinates);
 
-        element.css({
-            'transform': 
-                'translateX(' + CSSCoordinates[0] + 'px) ' + 
-                'translateY(' + CSSCoordinates[1] + 'px) ',
-            'transition-duration': duration + 'ms'
+        window.requestAnimationFrame(function () {
+            element.css({
+                'transform': 
+                    'translateX(' + CSSCoordinates[0] + 'px) ' + 
+                    'translateY(' + CSSCoordinates[1] + 'px) ',
+                'transition-duration': duration + 'ms'
+            });
         });
     };
 };
