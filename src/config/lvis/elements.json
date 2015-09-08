@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Poll",
+    "content-type": "poll",
+    "derived-from": "rpoll",
+    "label": "{{question.text}}",
+    "label-question": "{{question.text}}",
+    "label-option": "{{option.text}}",
+    "question": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "question"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "question"
+      }
+    ],
+    "option": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "option"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "option"
+      }
+    ]
+  },
+  {
+    "name": "Prediction",
+    "content-type": "prediction-question",
+    "derived-from": "prediction",
+    "label": "{{question.text}}",
+    "label-question": "{{question.text}}",
+    "label-option": "{{option.text}}",
+    "question": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "question"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "question"
+      }
+    ],
+    "option": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "option"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "option"
+      }
+    ]
+  },
+  {
+    "name": "Media",
+    "content-type": "media",
+    "derived-from": "data",
+    "icon": "photo",
+    "label": "{{element.text}}",
+    "has-duration": false,
+    "custom-fields": [
+      {
+        "label": "Text",
+        "key": "text",
+        "mandatory": "media"
+      },
+      {
+        "label": "Image",
+        "key": "image",
+        "mandatory": "media"
+      }
+    ]
+  }  
+]

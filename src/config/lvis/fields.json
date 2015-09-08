@@ -1,0 +1,10 @@
+[
+  {
+    "key": "text",
+    "type": "freetext"
+  },
+  {
+    "key": "image",
+    "type": "image"
+  }
+]
