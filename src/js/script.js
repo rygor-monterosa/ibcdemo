@@ -114,11 +114,11 @@ $(function () {
     var errors = [];
 
     if (typeof params.bc === "undefined") {
-        return errors.push("Can't initialise LViS API: bootstrap channel is not set");
+        return console.warn("Can't initialise LViS API: bootstrap channel is not set");
     }
 
     if (typeof params.sh === "undefined") {
-        return errors.push("Can't initialise LViS API: static host is not set");
+        return console.warn("Can't initialise LViS API: static host is not set");
     }
 
     LViS.bind(LViS.ON_READY, handleLViSReady);
