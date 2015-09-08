@@ -3,6 +3,12 @@
 
 $(function () {
 
+    // URL parameters
+    var params = {};
+
+    // Current LViS Event
+    var event = null;
+
     /*
      * 0 – Home Team
      * 1 – Visiting Team
@@ -12,57 +18,6 @@ $(function () {
      */
 
     var squad = [{}, {}, {}];
-
-    var initSquad = function () {
-        var data = window.Tracker.DataSource.getSquad();
-
-        data.forEach(function (team) {
-            team.players.forEach(function (player) {
-                var data = $.extend(player, {
-                    team: team.team % 3
-                });
-
-                squad[team.team][player.jersey] = new window.Tracker.Player(data);
-            });
-        });
-    };
-
-    var handleDataSourceInit = function () {
-        initSquad();
-
-        window.Tracker.DataSource.start();
-    };
-
-    var handleDataSourceTrack = function (e, track) {
-        window.Tracker.Time.update(track.timecode);
-
-        track.players.forEach(function (data) {
-            var team   = data.team % 3,
-                jersey = data.jersey;
-
-            if (squad[team] && squad[team][jersey]) {
-                squad[team][jersey].update(data.pos, track.duration);
-            }
-        });
-
-        if (track.ball !== null) {
-            window.Tracker.Ball.update(track.ball, track.duration);
-        }
-    };
-
-    $(window.Tracker.DataSource).bind('init', handleDataSourceInit);
-    $(window.Tracker.DataSource).bind('track', handleDataSourceTrack);
-
-    window.Tracker.DataSource.init();
-
-
-
-
-    // URL parameters
-    var params = {};
-
-    // Current LViS Event
-    var event = null;
 
     /*
      * Grab config parameters from URL
@@ -74,6 +29,22 @@ $(function () {
 
         params[key] = value;
     });
+
+    var initSquad = function () {
+        var data = event.getSquad();
+
+        jQuery('.players').empty();
+
+        data.forEach(function (team) {
+            team.players.forEach(function (player) {
+                var playerData = $.extend(player, {
+                    team: team.team % 3
+                });
+
+                squad[team.team][player.jersey] = new window.Tracker.Player(playerData);
+            });
+        });
+    };
 
 
     /*
@@ -120,6 +91,7 @@ $(function () {
         event = null;
     };
 
+
     /*
      * Handles new element publish
      */
@@ -127,11 +99,12 @@ $(function () {
         console.log('New element is published', element);
     };
 
-
     var handleEventReady = function () {
         console.log('Event is ready');
 
         var history = event.getHistory();
+
+        initSquad();
 
         if (history.length > 0) {
             console.log('Last published element: ', history[history.length - 1]);
@@ -152,7 +125,21 @@ $(function () {
         }        
     };
 
-    var handleEventTrack = function (/* track */) {
+    var handleEventTrack = function (track) {
+        window.Tracker.Time.update(track.timecode);
+
+        track.players.forEach(function (data) {
+            var team   = data.team % 3,
+                jersey = data.jersey;
+
+            if (squad[team] && squad[team][jersey]) {
+                squad[team][jersey].update(data.pos, track.duration);
+            }
+        });
+
+        if (track.ball !== null) {
+            window.Tracker.Ball.update(track.ball, track.duration);
+        }
     };
 
     var handleListingsUpdate = function () {
