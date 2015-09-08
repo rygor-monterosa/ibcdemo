@@ -103,6 +103,7 @@ $(function () {
 
         event.bind(LViS.Event.ON_ELEMENT_CREATE, handleElementCreate);
         event.bind(LViS.Event.ON_STATE, handleEventState);
+        event.bind(LViS.Event.ON_TRACK, handleEventTrack);
 
         LViS.setEvent(event, handleEventReady);
     };
@@ -149,6 +150,9 @@ $(function () {
                 stopEvent(event);
             break;
         }        
+    };
+
+    var handleEventTrack = function (/* track */) {
     };
 
     var handleListingsUpdate = function () {
