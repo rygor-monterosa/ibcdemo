@@ -48,6 +48,7 @@ $(function () {
 
         event.bind(LViS.Event.ON_ELEMENT_CREATE, handleElementCreate);
         event.bind(LViS.Event.ON_STATE, handleEventState);
+        event.bind(LViS.Event.ON_TRACK, handleEventTrack);
 
         LViS.setEvent(event, handleEventReady);
     };
@@ -96,6 +97,9 @@ $(function () {
         }        
     };
 
+    var handleEventTrack = function (/* track */) {
+    };
+
     var handleListingsUpdate = function () {
         console.log('Listings have been updated');
 
@@ -110,8 +114,6 @@ $(function () {
         initialiseNearestEvent();
     };
 
-
-    var errors = [];
 
     if (typeof params.bc === "undefined") {
         return console.warn("Can't initialise LViS API: bootstrap channel is not set");
