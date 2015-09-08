@@ -8,29 +8,29 @@ window.Tracker.DataSource = (function () {
         idx     = 0,
         data    = {},
         delta   = 1,
-        url     = '/assets/data/tracking.json',
+        time    = 0,
+        url     = '//s3-eu-west-1.amazonaws.com/ibcstats/tracking.json',
+        // url     = '//s3-eu-west-1.amazonaws.com/ibcstats/tracking-full-3m.json',
         state   = STATE_STOPPED,
         timeout = null;
-        // url   = '/assets/data/tracking-full-3m.json';
 
     var process = function () {
-        var track    = data.tracking[idx],
-            previous = (idx > 0 ? data.tracking[idx - 1].timecode : 0),
-            current  = track.timecode;
+        var track    = $.extend({}, data.tracking[idx]),
+            duration = track.timecode - time;
 
-        track._duration = current - previous;
+        track.duration = duration;
 
-        $(self).triggerHandler('track', track);
-
-        if (idx === data.tracking.length - 1) {
+        if (idx >= data.tracking.length - 1) {
             return self.stop();
         }
 
-        var next = data.tracking[idx + 1].timecode;
+        timeout = setTimeout(process, duration);
 
-        timeout = setTimeout(process, next - current);
+        time = track.timecode;
 
         idx += delta;
+
+        $(self).triggerHandler('track', track);
     };
 
     self.setData = function (tracking) {

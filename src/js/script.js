@@ -40,12 +40,12 @@ $(function () {
                 jersey = data.jersey;
 
             if (squad[team] && squad[team][jersey]) {
-                squad[team][jersey].update(data.pos, track._duration);
+                squad[team][jersey].update(data.pos, track.duration);
             }
         });
 
         if (track.ball !== null) {
-            window.Tracker.Ball.update(track.ball, track._duration);
+            window.Tracker.Ball.update(track.ball, track.duration);
         }
     };
 
