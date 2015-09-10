@@ -2,7 +2,7 @@ window.Tracker = window.Tracker || {};
 
 window.Tracker.Time = {
 
-    element: $('.time'),
+    element: null,
 
     update: function (timecode) {
         var passed  = Math.floor(timecode / 1000),
@@ -14,5 +14,9 @@ window.Tracker.Time = {
         }).join(':');
         
         this.element.text(str);
+    },
+
+    init: function () {
+        this.element = $('.time');
     }
 };

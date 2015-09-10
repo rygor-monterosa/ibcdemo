@@ -2,17 +2,13 @@ window.Tracker = window.Tracker || {};
 
 window.Tracker.Pitch = {
 
-    element: $('.pitch'),
+    element: null,
 
     // size in meters,
     meters: [105, 68],
 
     // size in pixels
-    pixels: (function () {
-        var container = $('.field');
-
-        return [container.width(), container.height()];
-    }()),
+    pixels: [],
 
     depth: 7,
 
@@ -24,5 +20,15 @@ window.Tracker.Pitch = {
         newCoordinates[2] = 1 + (typeof coordinates[2] !== 'undefined' ? coordinates[2] / this.depth : 0);
 
         return newCoordinates;
+    },
+
+    init: function () {
+        this.element = $('.pitch');
+        
+        this.pixels = (function () {
+            var container = $('.field');
+
+            return [container.width(), container.height()];
+        }());
     }
 };

@@ -59,7 +59,7 @@ window.Tracker.LViS = (function () {
 
         event = null;
 
-        jQuery(self).trigger(self.ON_EVENT_STOP, event);
+        jQuery(self).triggerHandler(self.ON_EVENT_STOP, event);
     };
 
 
@@ -81,7 +81,7 @@ window.Tracker.LViS = (function () {
             console.log('There is no published elements');
         }
 
-        jQuery(self).trigger(self.ON_EVENT_START, event);
+        jQuery(self).triggerHandler(self.ON_EVENT_START, event);
     };
 
     var handleEventState = function (state) {

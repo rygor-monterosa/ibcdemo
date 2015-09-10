@@ -2,7 +2,7 @@ window.Tracker = window.Tracker || {};
 
 window.Tracker.Ball = {
 
-    element: $('.ball'),
+    element: null,
 
     update: function (coordinates, duration) {
         var CSSCoordinates = window.Tracker.Pitch.toCSSCoordinates(coordinates);
@@ -17,5 +17,9 @@ window.Tracker.Ball = {
             });            
         }.bind(this));
 
+    },
+
+    init: function () {
+        this.element = $('.ball');
     }
 };
