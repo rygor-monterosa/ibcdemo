@@ -87,7 +87,7 @@ gulp.task('scripts', ['hint'], function() {
 		.pipe(gulp.dest('dist/assets/js/'));
 
 	// Scripts
-	gulp.src(['src/js/**/*.js'])
+	gulp.src(['src/js/lib/**/*.*', 'src/js/**/*.js'])
 		.pipe(plumber(options.plumber))
 		.pipe(concat('main.js' ))
 		.pipe(gulp.dest('dist/assets/js'))
