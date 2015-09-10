@@ -1,0 +1,29 @@
+.controls {
+  @size: 20px;
+
+  .transition(all 0.5s);
+  position: absolute;
+  left: 0;
+  top: -(@size + 10px);
+  opacity: 1;
+
+  &.hidden {
+    opacity: 0;
+  }
+
+  a {
+    .user-select(none);
+    .border-radius(50%);
+    margin: 0 5px;
+    display: block;
+    float: left;
+    width: @size;
+    height: @size;
+    line-height: @size;
+    cursor: pointer;
+    text-align: center;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+}

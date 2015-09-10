@@ -8,6 +8,7 @@ window.Tracker.Visual = function () {
     jQuery('<div class="wrapper">' + 
                 '<div class="pitch">' +
                     '<div class="field">' +
+                        '<div class="controls hidden"><a>&laquo;</a><a>&raquo;</a></div>' +
                         '<div class="time">00:00</div>' +
                         '<div class="ball"></div>' +
                         '<div class="players"></div>' +
@@ -16,6 +17,8 @@ window.Tracker.Visual = function () {
                 '</div>' + 
             '</div>')
         .appendTo(document.body);
+
+    var currentEvent = null;
 
     /*
      * 0 – Home Team
@@ -44,10 +47,18 @@ window.Tracker.Visual = function () {
     var handleEventStart = function (e, event) {
         initSquad(event.getSquad());
 
+        currentEvent = event;
+
+        window.Tracker.Controls.show();
+
         event.bind(LViS.Event.ON_TRACK, handleEventTrack);
     };
 
     var handleEventStop = function (e, event) {
+        window.Tracker.Controls.hide();
+
+        currentEvent = null;
+
         event.unbind(LViS.Event.ON_TRACK, handleEventTrack);
     };
 
@@ -68,10 +79,25 @@ window.Tracker.Visual = function () {
         }
     };
 
+    var handleControlsForward = function () {
+        if (currentEvent !== null) {
+            currentEvent.increaseTrackingIndex();
+        }
+    };
+
+    var handleControlsBackward = function () {
+        if (currentEvent !== null) {
+            currentEvent.decreaseTrackingIndex();
+        }
+    };
+
     window.Tracker.Pitch.init();
     window.Tracker.Ball.init();
     window.Tracker.Time.init();
+    window.Tracker.Controls.init();
 
+    $(window.Tracker.Controls).on(window.Tracker.Controls.ON_FORWARD, handleControlsForward);
+    $(window.Tracker.Controls).on(window.Tracker.Controls.ON_BACKWARD, handleControlsBackward);
     $(window.Tracker.LViS).on(window.Tracker.LViS.ON_EVENT_START, handleEventStart);
     $(window.Tracker.LViS).on(window.Tracker.LViS.ON_EVENT_STOP, handleEventStop);
 };
