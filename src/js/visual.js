@@ -5,14 +5,17 @@ window.Tracker = window.Tracker || {};
 
 window.Tracker.Visual = function () {
 
-    jQuery('<div class="pitch">' +
-                '<div class="field">' +
-                    '<div class="time">00:00</div>' +
-                    '<div class="ball"></div>' +
-                    '<div class="players"></div>' +
-                '</div>' +
+    jQuery('<div class="wrapper">' + 
+                '<div class="pitch">' +
+                    '<div class="field">' +
+                        '<div class="time">00:00</div>' +
+                        '<div class="ball"></div>' +
+                        '<div class="players"></div>' +
+                        '<div class="logos"></div>' +
+                    '</div>' +
+                '</div>' + 
             '</div>')
-        .appendTo(jQuery('.wrapper'));
+        .appendTo(document.body);
 
     /*
      * 0 – Home Team

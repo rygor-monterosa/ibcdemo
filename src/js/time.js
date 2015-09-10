@@ -4,8 +4,10 @@ window.Tracker.Time = {
 
     element: null,
 
+    offset: 30 * 60,
+
     update: function (timecode) {
-        var passed  = Math.floor(timecode / 1000),
+        var passed  = Math.floor(this.offset + timecode / 1000),
             minutes = Math.floor(passed / 60),
             seconds = passed - minutes * 60;
 

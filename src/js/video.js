@@ -7,14 +7,11 @@ window.Tracker.Video = function (config) {
     config = config || {};
 
     var self    = this,
-        width   = 1024,
-        height  = 576,
-        scale   = 0.5,
         formats = ['mp4', 'webm'],
         path    = config.path || '//s3-eu-west-1.amazonaws.com/ibcstats/video',
         video   = '10098218A',
         poster  = 'poster.jpg',
-        offset  = 12,
+        offset  = 10 + 30 * 60,
         started = false;
     
     var url = function (file) {
@@ -27,8 +24,6 @@ window.Tracker.Video = function (config) {
 
     var element = $('<video></video>')
         .attr({ 
-            width: width * scale,
-            height: height * scale,
             poster: url(poster),
             autoplay: false
         })
