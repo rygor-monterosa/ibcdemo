@@ -6,9 +6,6 @@ $(function () {
     // URL parameters
     var params = {};
 
-    // Current LViS Event
-    var event = null;
-
     /*
      * 0 – Home Team
      * 1 – Visiting Team
@@ -52,9 +49,7 @@ $(function () {
         event.bind(LViS.Event.ON_TRACK, handleEventTrack);
     };
 
-    var handleEventStop = function () {
-        console.log('handleEventStop');
-
+    var handleEventStop = function (e, event) {
         event.unbind(LViS.Event.ON_TRACK, handleEventTrack);
     };
 
