@@ -57,9 +57,9 @@ window.Tracker.LViS = (function () {
         event.unbind(LViS.Event.ON_ELEMENT_CREATE, handleElementCreate);
         event.unbind(LViS.Event.ON_STATE, handleEventState);
 
-        event = null;
-
         jQuery(self).trigger(self.ON_EVENT_STOP, event);
+
+        event = null;
     };
 
 
