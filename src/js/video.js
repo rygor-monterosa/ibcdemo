@@ -11,7 +11,7 @@ window.Tracker.Video = function (config) {
         path    = config.path || '//s3-eu-west-1.amazonaws.com/ibcstats/video',
         video   = '10098218A',
         poster  = 'poster.jpg',
-        offset  = 10 + 30 * 60,
+        offset  = 10,
         started = false;
     
     var url = function (file) {

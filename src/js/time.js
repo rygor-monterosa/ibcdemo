@@ -4,7 +4,7 @@ window.Tracker.Time = {
 
     element: null,
 
-    offset: 30 * 60,
+    offset: 0,
 
     update: function (timecode) {
         var passed  = Math.floor(this.offset + timecode / 1000),
