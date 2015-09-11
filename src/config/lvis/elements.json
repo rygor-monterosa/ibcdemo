@@ -36,9 +36,9 @@
     ]
   },
   {
-    "name": "Prediction",
-    "content-type": "prediction-question",
-    "derived-from": "prediction",
+    "name": "Quiz",
+    "content-type": "quiz",
+    "derived-from": "trivia",
     "label": "{{question.text}}",
     "label-question": "{{question.text}}",
     "label-option": "{{option.text}}",
