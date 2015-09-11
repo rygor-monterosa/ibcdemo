@@ -90,5 +90,102 @@
         "mandatory": "media"
       }
     ]
-  }  
+  },
+
+
+  {
+    "name": "Swing Poll",
+    "content-type": "swing",
+    "derived-from": "dpoll",
+    "label": "{{question.text}}",
+    "label-question": "{{question.text}}",
+    "label-option": "{{option.text}}",
+    "question": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "question"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "question"
+      }
+    ],
+    "option": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "option"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "option"
+      }
+    ]
+  },
+
+  {
+    "name": "Prediction",
+    "content-type": "prediction-element",
+    "derived-from": "prediction",
+    "label": "{{question.text}}",
+    "label-question": "{{question.text}}",
+    "label-option": "{{option.text}}",
+    "question": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "question"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "question"
+      }
+    ],
+    "option": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "option"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "option"
+      }
+    ]
+  },
+
+  {
+    "name": "PowerBar",
+    "content-type": "powerbar-element",
+    "derived-from": "powerbar",
+    "label": "{{question.text}}",
+    "label-question": "{{question.text}}",
+    "question": [
+      {
+        "label": "Text:",
+        "key": "text",
+        "field": "text",
+        "mandatory": "question"
+      },
+      {
+        "label": "Image:",
+        "key": "image",
+        "field": "image",
+        "mandatory": "question"
+      }
+    ]
+  }
 ]
