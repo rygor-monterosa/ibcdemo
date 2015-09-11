@@ -6,11 +6,12 @@
 
 .pitch {
   .transform(translateX(-50%) translateY(-50%));
+  margin-left: -@elements-width / 2;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 780px;
-  height: 528px;
+  width: @pitch-width;
+  height: @pitch-height;
   background: url(../images/pitch.png);
   .background-size(cover);
 

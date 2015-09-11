@@ -95,6 +95,7 @@ window.Tracker.Visual = function () {
     window.Tracker.Ball.init();
     window.Tracker.Time.init();
     window.Tracker.Controls.init();
+    window.Tracker.Elements.init();
 
     $(window.Tracker.Controls).on(window.Tracker.Controls.ON_FORWARD, handleControlsForward);
     $(window.Tracker.Controls).on(window.Tracker.Controls.ON_BACKWARD, handleControlsBackward);
