@@ -24,21 +24,14 @@ $(function () {
         return console.warn("Can't initialise LViS API: static host is not set");
     }
 
-    switch (params.app) {
-        case 'video':
-            var config = {};
+    var config = {};
 
-            if (typeof params.path !== "undefined") {
-                config.path = params.path;
-            }
-
-            new window.Tracker.Video(config);
-        break;
-        default:
-        case 'tracker':
-            new window.Tracker.Visual();
-        break;
+    if (typeof params.path !== "undefined") {
+        config.path = params.path;
     }
+
+    new window.Tracker.Video(config);
+    new window.Tracker.Visual();
 
     window.Tracker.LViS.init(params.bc, params.sh);
 });

@@ -27,6 +27,9 @@ window.Tracker.Video = function (config) {
             poster: url(poster),
             autoplay: false
         })
+        .prop({
+            volume: 0
+        })
         .appendTo(container);
 
     formats.forEach(function (format) {
@@ -60,6 +63,10 @@ window.Tracker.Video = function (config) {
         }
     };
 
+    var handleVideoClick = function () {
+        container.toggleClass('opened');
+    };
+
     this.play = function () {
         element[0].play();
     };
@@ -72,6 +79,8 @@ window.Tracker.Video = function (config) {
         // console.log();
         element[0].currentTime = offset + time;
     };
+
+    element.bind('click', handleVideoClick);
 
     $(window.Tracker.LViS).on(window.Tracker.LViS.ON_EVENT_START, handleEventStart);
     $(window.Tracker.LViS).on(window.Tracker.LViS.ON_EVENT_STOP, handleEventStop);
